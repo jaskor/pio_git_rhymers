@@ -4,6 +4,7 @@ public class DefaultCountingOutRhymer {
 
     public static final int STACK_CAPACITY = 12;
     public static final int EMPTY_STACK_MARKER = -1;
+    public static final int DEFAULT_VALUE = -1;
     private final int[] numbers = new int[STACK_CAPACITY];
 
     public int total = EMPTY_STACK_MARKER;
@@ -21,15 +22,15 @@ public class DefaultCountingOutRhymer {
         return total == STACK_CAPACITY - 1;
     }
 
-    protected int getTopElement() {
+    protected int peekaboo() {
         if (callCheck())
-            return EMPTY_STACK_MARKER;
+            return DEFAULT_VALUE;
         return numbers[total];
     }
 
     public int countOut() {
         if (callCheck())
-            return EMPTY_STACK_MARKER;
+            return DEFAULT_VALUE;
         return numbers[total--];
     }
 
